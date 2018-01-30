@@ -14,10 +14,9 @@ class EnterpriseMessages extends Migration
     public function up()
     {
         Schema::create('EnterpriseMessages', function (Blueprint $table) {
-            $table->intiger('Id')->index();
+            $table->foreign('MainEnterprice')->unique()-> references('EnterpriseUserName')->on('EnterpriseAccount');
             $table->string('ServiceProvider');
-            $table->string('Ballance');
-            $table->foreign('MainEnterprice')->references('EnterpriseUserName')->on('EnterpriseAccount');
+            $table->string('Balance');
         });
     }
 

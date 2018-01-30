@@ -20,9 +20,7 @@ class userlistdetails extends Migration
 			$table->string('ListCreatedDate');
 			$table->string('ListLastModified');
 			$table->string('ListSize');
-			
-			
-								
+
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NumberList extends Migration
+class LogTalble extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class NumberList extends Migration
      */
     public function up()
     {
-        Schema::create('NumberList', function (Blueprint $table) {
-            $table->string('NLNumber');
-			$table->int('NId');
-			
+        Schema::create('LogTalble', function (Blueprint $table) {
+            $table->Int('LogId')->index();
+            $table->string('LogUser');
+			$table->string('LogTask');
+			$table->string('LogDescription');
+			$table->timestamp('LogTimestamp')-> nullable();
+
         });
     }
 
@@ -27,6 +30,6 @@ class NumberList extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('NumberList');
+        Schema::dropIfExists('LogTalble');
     }
 }

@@ -279,10 +279,10 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="{{ url('/')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="{{ url('/userlist')}}"><i class="fa fa-users"></i> <span>User List</span></a></li>
-        <li><a href="{{ url('/singlemsg')}}"><i class="fa fa-envelope"></i> <span>Single Message</span></a></li>
-        <li><a href="{{ url('/bulkmsg')}}"><i class="fa fa-database"></i> <span>Bulk Message</span></a></li>
+        <li class="active"><a href="{{ url('user')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="{{ url('user/userlist')}}"><i class="fa fa-users"></i> <span>User List</span></a></li>
+        <li><a href="{{ url('user/singlemsg')}}"><i class="fa fa-envelope"></i> <span>Single Message</span></a></li>
+        <li><a href="{{ url('user/bulkmsg')}}"><i class="fa fa-database"></i> <span>Bulk Message</span></a></li>
         <li><a href="#"><i class="fa fa-area-chart"></i> <span>Account</span></a></li>
 
         {{--<li class="treeview">--}}

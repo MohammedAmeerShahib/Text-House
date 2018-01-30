@@ -15,10 +15,10 @@ class EnterpriseAccount extends Migration
     {
         Schema::create('EnterpriseAccount', function (Blueprint $table) {
             $table->string('EnterpriseUserName')->index();
-            $table->string('CompanyName');
-			$table->string('CompanyAddress');
-			$table->string('CompanyContactnumber');
-			$table->string('CompanyEmail');
+            $table->string('EnterpriseName');
+			$table->string('EnterpriseAddress');
+			$table->string('EnterpriseContactnumber');
+			$table->string('EnterpriseEmail');
 
         });
     }
