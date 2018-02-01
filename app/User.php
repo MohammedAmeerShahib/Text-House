@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','user_type',
+       'EnterpriseId','username', 'email', 'password','user_type',
     ];
 
     /**
@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function balanceMessage()
+    {
+        return $this->hasMany('App\BalanceMessage','username');
+    }
+
+    public function userList()
+    {
+        return $this->hasMany('App\UserListDetails','username');
+    }
+
+    public function textMessage()
+    {
+        return $this->hasMany('App\TextMessage','username');
+    }
+
+    public function enterpriseAccount()
+    {
+        return $this->belongsTo('App\EnterpriseAccount','EnterpriseId');
+    }
 }

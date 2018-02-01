@@ -12,39 +12,45 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth/login');
+})->middleware('auth','admin');
 
-
-Route::get('/', function () {
-    return view('AddEnterprise');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::group(array('prefix'=>'admin','middleware' => ['auth']), function ()
+//Route::group(array('prefix'=>'admin','middleware' => ['auth','admin']), function ()
 //{
 //    Route::get('/',function(){
 //
-//        return "Welcome to Administration";
+//        return view('UserDashboard');
 //    });
 //
-//    Route::get('dashboard',function(){
-//        return "Welcome to Administration";
+//    Route::resource('enterprise','EnterpriseController');
+//
+//    Route::get('/log', function () {
+//        return view('BulkMsg');
 //    });
 //});
 //
-//Route::group(array('prefix'=>'user','middleware' => ['auth']), function ()
+//Route::group(array('prefix'=>'user','middleware' => ['auth','admin']), function ()
 //{
 //    Route::get('/',function(){
 //
-//        return "Welcome to User";
+//        return view('UserDashboard');
 //    });
 //
-//    Route::get('dashboard',function(){
-//        return "Welcome to Administration";
+//    Route::get('/bulkmsg', function () {
+//        return view('BulkMsg');
+//    });
+//
+//    Route::get('/singlemsg', function () {
+//        return view('BulkMsg');
+//    });
+//
+//    Route::get('/userlist', function () {
+//        return view('UserList');
 //    });
 //});
 
@@ -54,7 +60,7 @@ Route::group(array('prefix'=>'admin'), function ()
 {
     Route::get('/',function(){
 
-        return view('UserDashboard');
+        return view('AddEnterprise');
     });
 
     Route::get('/enterprise', function () {
@@ -88,3 +94,5 @@ Route::group(array('prefix'=>'user'), function ()
 
 
 });
+
+

@@ -136,7 +136,7 @@
                                 <!-- Messsege -->
                                 <div class="form-group">
                                     <label>Messege</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" rows="4" placeholder="Enter ..."></textarea>
                                 </div>
                             </div>
                         </div>

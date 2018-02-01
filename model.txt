@@ -1,0 +1,17 @@
+php artisan make:migration Enterprise_Account   
+php artisan make:migration Enterprise_Message
+php artisan make:migration Number_List
+php artisan make:migration Sub_User
+php artisan make:migration Text_Message
+php artisan make:migration User_List_Details
+
+
+php artisan make:model EnterpriseAccount
+php artisan make:model EnterpriseMessage
+php artisan make:model NumberList
+php artisan make:model SubUser
+php artisan make:model TextMessage
+php artisan make:model UserListDetails
+
+
+
