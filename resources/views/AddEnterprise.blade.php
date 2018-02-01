@@ -25,124 +25,84 @@
             <div class="box box-primary">
 
                 <!-- /.box-header -->
-                <div style="background-color:white" class="col-md-6">
+                <div style="background-color:white" class="col-md-12">
                     <div class="box-header with-border">
                         <h3 class="box-title">Company Details</h3>
                     </div>
-                    <!-- general form elements -->
+                    <div class="col-sm-2" style="margin-top: 4%;margin-bottom: 2%">
+            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-sm">
+                <i class="glyphicon glyphicon-plus"></i>
+                <b>&nbsp;&nbsp;CREATE</b>
+            </button>
 
-                    <!-- form start -->
-
-                    <div class="form-horizontal">
-                        <div class="box-body">
-
-
-
-                            
-                            
-
-
-                            <div class="form-group">
-                                <label for="lblCompanyName" class="col-sm-3 control-label">Company Name</label>
-
-                                <div class="col-sm-9">
-                                    <input type="Text" class="form-control" id="companyName" placeholder="Company Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblCmpnyCN" class="col-sm-3 control-label">Contact Number</label>
-
-                                <div class="col-sm-9">
-                                    <input type="Text" class="form-control" id="cmpnyCN" placeholder="Company Contact Number">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="lblCmpnyEmail" class="col-sm-3 control-label">Email</label>
-
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="cmpnyEmail" placeholder="Company Email">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="lblCmpnyAddress" class="col-sm-3 control-label">Address</label>
-
-                                <div class="col-sm-9">
-                                    <textarea class="form-control" id="cmpnyAddress" rows="4" placeholder="Company Address"></textarea>
-                                    {{--<input type="text" class="form-control" id="cmpnyAddress" placeholder="Company Address">--}}
-
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div style="background-color:white" class="col-md-6">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Add Login Details</h3>
-                    </div>
-                    <!-- general form elements -->
-
-                    <!-- form start -->
-
-                    <div class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="lblCmpnyUsername" class="col-sm-2 control-label">Username</label>
-
-                                <div class="col-sm-10">
-                                    <input type="Text" class="form-control" id="cmpnyUsername" placeholder="Username">
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="lblCmpnyPW" class="col-sm-2 control-label">Password</label>
-
-                                <div class="col-sm-10">
-                                    <input type="Password" class="form-control" id="cmpnyPW" placeholder="Password">
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                        
-
-                    </div>
-
-
-                </div>
-
-
-
-            </div>
-        </form>
-    </div>
-
-    <div  class="row">
-
-    <div style="padding: 5%">
-
-        <div style="float:right; padding-left:2%">
-            <button type="submit" class="btn btn-info pull-right">Submit</button>
         </div>
+                    </div>
 
-        <div style="float:right">
-            <button class="btn btn-default">Cancel</button>
-        </div>
-    </div>
-    </div>
+                    <section style="background-color:white" class="content container-fluid">
 
 
 
+
+        
+        <table id="SMS" class="table table-bordered table-hover dataTable" role="grid">
+            <thead>
+            <tr role="row">
+                <th width="5%">Number</th>
+                <th width="22%">Enterprise Name</th>
+                <th width="15%">Contatc Number</th>
+                <th width="23%">Email</th>
+                <th width="25%">Address</th>
+                <th width="10%">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>Microsoft</td>
+                <td>0112000400</td>
+                <td>info@microsoft.lk</td>
+                <td>Colombo</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Edit  </a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ubisoft</td>
+                <td>0116503200</td>
+                <td>info@Ubisoft.lk</td>
+                <td>Colombo</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Valve</td>
+                <td>0816302600</td>
+                <td>contact@valve.lk</td>
+                <td>Katugasthota</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Cisco</td>
+                <td>0354560000</td>
+                <td>lk@cisco.com</td>
+                <td>Mawanella</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Infinity Ward</td>
+                <td>0818200320</td>
+                <td>info@infinityward.lk</td>
+                <td>Matale</td>
+            </tr>
+                        </tbody>
+        </table>
+
+
+        <?php   include(app_path().'/Includes/CreateList.php'); ?>
+
+    </section>
+
+                    </div>
 </section>
 @endsection
