@@ -75,7 +75,7 @@
         </table>
 
 
-        <?php   include(app_path().'/Includes/CreateList.php'); ?>
+        <?php   include(app_path().'/Includes/CreateList.blade.php'); ?>
 
     </section>
 

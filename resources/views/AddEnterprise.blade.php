@@ -19,7 +19,6 @@
       | Your Page Content Here |
       -------------------------->
     <div style="background-color:white" class="row">
-        <form>
 
             <!-- left column -->
             <div class="box box-primary">
@@ -30,7 +29,7 @@
                         <h3 class="box-title">Company Details</h3>
                     </div>
                     <div class="col-sm-2" style="margin-top: 4%;margin-bottom: 2%">
-            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-sm">
+            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-ce">
                 <i class="glyphicon glyphicon-plus"></i>
                 <b>&nbsp;&nbsp;CREATE</b>
             </button>
@@ -99,10 +98,97 @@
         </table>
 
 
-        <?php   include(app_path().'/Includes/CreateList.php'); ?>
 
-    </section>
+                        <!-- Bootstrap modal -->
 
+                        <div class="modal fade bs-modal-ce"  role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title">Enterprise Form</h3>
+                                    </div>
+                                    <div class="modal-body form">
+
+                                        <form class="form-horizontal" method="POST" action="{{ url('admin/enterprise.store')}}">
+                                            {{ csrf_field() }}
+
+                                            <div class="form-body">
+
+                                                <div class="form-group{{ $errors->has('EnterpriseName') ? ' has-error' : '' }}">
+                                                    <label for="EnterpriseName" class="col-md-4 control-label">Company Name</label>
+
+                                                    <div class="col-md-6">
+                                                        <input id="EnterpriseName" type="text" class="form-control" name="EnterpriseName" value="{{ old('EnterpriseName') }}" required autofocus>
+
+                                                        @if ($errors->has('EnterpriseName'))
+                                                            <span class="help-block">
+                                        <strong>{{ $errors->first('EnterpriseName') }}</strong>
+                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group{{ $errors->has('EnterpriseContactnumber') ? ' has-error' : '' }}">
+                                                    <label for="EnterpriseName" class="col-md-4 control-label">Company Name</label>
+
+                                                    <div class="col-md-6">
+                                                        <input id="EnterpriseContactnumber" type="text" class="form-control" name="EnterpriseContactnumber" value="{{ old('EnterpriseContactnumber') }}" required autofocus>
+
+                                                        @if ($errors->has('EnterpriseContactnumber'))
+                                                            <span class="help-block">
+                                        <strong>{{ $errors->first('EnterpriseContactnumber') }}</strong>
+                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group{{ $errors->has('EnterpriseAddress') ? ' has-error' : '' }}">
+                                                    <label for="EnterpriseAddress" class="col-md-4 control-label">Company Address</label>
+
+                                                    <div class="col-md-6">
+                                                        <textarea id="EnterpriseAddress" type="text" class="form-control" name="EnterpriseAddress" value="{{ old('EnterpriseAddress') }}" required autofocus></textarea>
+
+                                                        @if ($errors->has('EnterpriseAddress'))
+                                                            <span class="help-block">
+                                        <strong>{{ $errors->first('EnterpriseAddress') }}</strong>
+                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group{{ $errors->has('EnterpriseEmail') ? ' has-error' : '' }}">
+                                                    <label for="EnterpriseEmail" class="col-md-4 control-label">Email</label>
+
+                                                    <div class="col-md-6">
+                                                        <input id="EnterpriseEmail" type="text" class="form-control" name="EnterpriseEmail" value="{{ old('EnterpriseEmail') }}" required autofocus>
+
+                                                        @if ($errors->has('EnterpriseEmail'))
+                                                            <span class="help-block">
+                                        <strong>{{ $errors->first('EnterpriseEmail') }}</strong>
+                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        <!-- End Bootstrap modal -->
+
+
+
+
+                    </section>
+            </div>
                     </div>
 </section>
 @endsection

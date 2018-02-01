@@ -103,7 +103,7 @@
     </div>
 </div>
 
-        <?php   include(app_path().'/Includes/ScheduleMsg.php'); ?>
+        <?php   include(app_path().'/Includes/ScheduleMsg.blade.php'); ?>
 
 
     </section>
