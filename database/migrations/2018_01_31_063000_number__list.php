@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class NumberList extends Migration
 {
     /**
@@ -15,9 +16,13 @@ class NumberList extends Migration
     {
         Schema::create('NumberList', function (Blueprint $table) {
 
-            $table->foreign('ListId')->references('ListId')->on('userlistdetails');
+           // $table->foreign('ListId')->references('ListId')->on('userlistdetails');
             $table->string('NLNumber');
 
+        });
+        Schema::tabel('NumberList', function($table)
+        {
+            $table->foreign('ListId')->references('ListId')->on('userlistdetails');
         });
     }
 

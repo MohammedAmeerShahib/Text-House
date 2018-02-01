@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class BalanceMessage extends Migration
 {
     /**
@@ -15,9 +16,13 @@ class BalanceMessage extends Migration
     {
         Schema::create('BalanceMessage', function (Blueprint $table) {
             $table->increments('MessageId')->index();
-            $table->foreign('username')->unique()-> references('username')->on('users');
             $table->string('ServiceProvider');
             $table->integer('Balance');
+        });
+
+        Schema::tabel('BalanceMessage', function($table)
+        {
+            $table->foreign('username')->unique()-> references('username')->on('users');
         });
     }
 

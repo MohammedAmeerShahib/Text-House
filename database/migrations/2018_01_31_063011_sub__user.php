@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class SubUser extends Migration
 {
     /**
@@ -15,9 +16,14 @@ class SubUser extends Migration
     {
         Schema::create('userlistdetails', function (Blueprint $table) {
             $table->increments('SubUserId')->index();
-            $table->foreign('EnterpriseId')->references('EnterpriseId')->on('EnterpriseAccount');
+          // $table->foreign('EnterpriseId')->references('EnterpriseId')->on('EnterpriseAccount');
             $table->string('SubUserName')->unique();
 
+        });
+
+        Schema::tabel('userlistdetails', function($table)
+        {
+            $table->foreign('EnterpriseId')->references('EnterpriseId')->on('EnterpriseAccount');
         });
     }
 

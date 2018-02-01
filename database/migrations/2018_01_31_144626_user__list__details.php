@@ -15,12 +15,17 @@ class UserListDetails extends Migration
     {
         Schema::create('userlistdetails', function (Blueprint $table) {
             $table->increments('ListId')->index();
-            $table->foreign('username')->references('username')->on('users');
             $table->string('ListName');
             $table->string('ListCreatedDate');
             $table->string('ListLastModified');
             $table->string('ListSize');
 
+        });
+
+
+        Schema::tabel('userlistdetails', function($table)
+        {
+            $table->foreign('username')->references('username')->on('users');
         });
     }
 
