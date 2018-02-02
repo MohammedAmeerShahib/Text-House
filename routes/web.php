@@ -91,7 +91,7 @@ Route::group(array('prefix'=>'user'), function ()
     });
 
     Route::get('/singlemsg', function () {
-        return view('BulkMsg');
+        return view('IndividualMsg');
     });
 
     Route::get('/userlist', function () {

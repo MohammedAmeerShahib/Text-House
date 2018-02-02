@@ -14,9 +14,9 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
-        $enterprise = EnterpriseAccount::latest()->paginate(5);
-        return view('enterprise.index',compact('enterprise'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // $enterprise = EnterpriseAccount::latest()->paginate(5);
+        // return view('enterprise.index',compact('enterprise'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
         return view('AddEnterprise');
     }
 
