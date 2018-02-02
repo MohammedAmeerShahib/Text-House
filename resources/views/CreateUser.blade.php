@@ -3,8 +3,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-
-	</h1> <ol class="breadcrumb">
+        Create User
+	    </h1>
+        <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
             <li class="active">Here</li>
         </ol>
@@ -39,7 +40,7 @@
                 <td>1</td>
                 <td>02:04 04/01/2018</td>
                 <td>Shipa</td>
-                <td><a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" data-toggle="modal" data-target=".bs-modal-sm"><i class="glyphicon glyphicon-user"></i> Create Account  </a>
+                <td><a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" data-toggle="modal" data-target=".bs-modal-sm"><i class="glyphicon glyphicon-user"></i>&nbsp Create Account  </a>
 
                 </td>
             </tr>
