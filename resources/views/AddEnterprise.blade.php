@@ -13,12 +13,11 @@
 </section>
 
 <!-- Main content -->
-<section class="content container-fluid">
+<section style="background-color:white" class="content container-fluid">
 
     <!--------------------------
       | Your Page Content Here |
       -------------------------->
-    <div style="background-color:white" class="row">
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -27,10 +26,8 @@
     @endif
 
             <!-- left column -->
-            <div class="box box-primary">
 
                 <!-- /.box-header -->
-                <div style="background-color:white" class="col-md-12">
 
                     <div class="col-sm-2" style="margin-top: 4%;margin-bottom: 2%">
             <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-ce">
@@ -39,7 +36,6 @@
             </button>
 
         </div>
-                    </div>
 
 
         
@@ -98,6 +94,7 @@
         </table>
 
 
+</section>
 
                         <!-- Bootstrap modal -->
 
@@ -188,8 +185,6 @@
 
 
 
-                    
-            </div>
-                    </div>
-</section>
+
+
 @endsection

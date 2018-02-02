@@ -1,9 +1,10 @@
 @extends('UserLayout')
 @section('content')
-    <!-- Content Header (Page header) -->
+
     <section class="content-header">
         <h1>
-            Individual Message
+            Page Header
+            <small>Optional description</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -11,96 +12,99 @@
         </ol>
     </section>
 
-    <!-- Main content -->
+    <section class="content container-fluid">
 
-    <section style="background-color:white" class="content container-fluid">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Inbox</h3>
 
+                <div class="box-tools pull-right">
+                    <div class="has-feedback">
+                        <input type="text" class="form-control input-sm" placeholder="Search Mail">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
 
+                    <div  style="margin-top: 4%;margin-bottom: 2%">
+                        <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".modal-bulkmsg">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <b>&nbsp;&nbsp;COMPOSE MESSAGE</b>
+                        </button>
 
-        <div style="margin-bottom: 2%">
+                    </div>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+
+                    <!-- /.btn-group -->
+                </div>
+
+                <div class="table-responsive mailbox-messages">
+                    <table class="table table-hover table-striped no-margin">
+                        <tbody>
+                        <tr>
+                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
+                            <td><b>1</b></td>
+                            <td >02:30:16 <br> 17/01/2018</td>
+                            <td>0771234567</td>
+                            <td>First Message sent to this number as expected deliverd</td>
+                            <td><span class="label label-primary">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
+                            <td><b>1</b></td>
+                            <td >02:30:16 <br> 17/01/2018</td>
+                            <td>0771234567</td>
+                            <td>First Message sent to this</td>
+                            <td><span class="label label-primary">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
+                            <td><b>1</b></td>
+                            <td >02:30:16 <br> 17/01/2018</td>
+                            <td>0771234567</td>
+                            <td>First Message sent to this</td>
+                            <td><span class="label label-danger">UnDelivered</span></td>
+                        </tr>
+                        <tr>
+                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
+                            <td><b>1</b></td>
+                            <td >02:30:16 <br> 17/01/2018</td>
+                            <td>0771234567</td>
+                            <td>First Message sent to this</td>
+                            <td><span class="label label-primary">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
+                            <td><b>1</b></td>
+                            <td >02:30:16 <br> 17/01/2018</td>
+                            <td>0771234567</td>
+                            <td>First Message sent to this</td>
+                            <td><span class="label label-primary">Delivered</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- /.table -->
+                </div>
+                <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer no-padding">
+                <div class="mailbox-controls">
+                    <!-- Check all button -->
+                </div>
+            </div>
         </div>
-        <div style="margin-bottom: 2%">
-            <table>
-                <tr>
-                    <th>
-                        <button type="button" class="btn btn-block btn-primary">Compose</button>
-                    </th>
-                <tr>
-            </table>
-        </div>
-        <table id="SMS" class="table table-bordered table-hover dataTable" role="grid">
-            <thead>
-            <tr role="row">
-                <th width="7%">Number</th>
-                <th width="15%">Sent At</th>
-                <th width="20%">To</th>
-                <th>Message</th>
-            </tr>
-            </thead>
-            <tbody>
 
-            <tr>
-                <td>1</td>
-                <td>02:04 04/01/2018</td>
-                <td>Shipa</td>
-                <td>1.7</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>02:01 04/01/2018</td>
-                <td>Ameer</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>04:01 04/01/2018</td>
-                <td>Shipa</td>
-                <td>1.8</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>04:01 04/02/2018</td>
-                <td>Sajan</td>
-                <td>1.9</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>04:01 04/02/2018</td>
-                <td>AG</td>
-                <td>1.8</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>04:05 04/02/2018</td>
-                <td>Wicky</td>
-                <td>1.8</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>04:08 04/02/2018</td>
-                <td>Usama</td>
-                <td>1.7</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>02:08 05/02/2018</td>
-                <td>Shaahik</td>
-                <td>1.7</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>02:21 05/02/2018</td>
-                <td>Muni</td>
-                <td>1.8</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>03:37 06/02/2018</td>
-                <td>Kaushigun</td>
-                <td>1</td>
-            </tr>
-            </tbody>
-        </table>
+        <?php   include(app_path().'/Includes/ScheduleMsg.blade.php'); ?>
+
 
     </section>
 
