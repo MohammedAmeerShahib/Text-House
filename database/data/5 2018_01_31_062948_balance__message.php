@@ -16,11 +16,12 @@ class BalanceMessage extends Migration
     {
         Schema::create('BalanceMessage', function (Blueprint $table) {
             $table->increments('MessageId')->index();
+            $table->string('username');
             $table->string('ServiceProvider');
             $table->integer('Balance');
         });
 
-        Schema::tabel('BalanceMessage', function($table)
+        Schema::table('BalanceMessage', function($table)
         {
             $table->foreign('username')->unique()-> references('username')->on('users');
         });

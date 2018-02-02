@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserListDetails extends Migration
+class CreateUserListDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,15 +15,17 @@ class UserListDetails extends Migration
     {
         Schema::create('userlistdetails', function (Blueprint $table) {
             $table->increments('ListId')->index();
+            $table->string('username');
             $table->string('ListName');
-            $table->string('ListCreatedDate');
-            $table->string('ListLastModified');
+            $table->string('ListCreatedDate')->timestamps();
+            $table->string('ListLastModified')->timestamps();
             $table->string('ListSize');
+            $table->timestamps();
 
         });
 
 
-        Schema::tabel('userlistdetails', function($table)
+        Schema::table('userlistdetails', function($table)
         {
             $table->foreign('username')->references('username')->on('users');
         });
@@ -36,6 +38,6 @@ class UserListDetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userlistdetails');
+        Schema::dropIfExists('_user_list_details');
     }
 }

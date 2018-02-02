@@ -16,11 +16,11 @@ class NumberList extends Migration
     {
         Schema::create('NumberList', function (Blueprint $table) {
 
-           // $table->foreign('ListId')->references('ListId')->on('userlistdetails');
+            $table->integer('ListId')->unsigned();
             $table->string('NLNumber');
 
         });
-        Schema::tabel('NumberList', function($table)
+        Schema::table('NumberList', function($table)
         {
             $table->foreign('ListId')->references('ListId')->on('userlistdetails');
         });

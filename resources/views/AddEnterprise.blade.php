@@ -20,14 +20,18 @@
       -------------------------->
     <div style="background-color:white" class="row">
 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+    @endif
+
             <!-- left column -->
             <div class="box box-primary">
 
                 <!-- /.box-header -->
                 <div style="background-color:white" class="col-md-12">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Company Details</h3>
-                    </div>
+
                     <div class="col-sm-2" style="margin-top: 4%;margin-bottom: 2%">
             <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-ce">
                 <i class="glyphicon glyphicon-plus"></i>
@@ -36,10 +40,6 @@
 
         </div>
                     </div>
-
-                    <section style="background-color:white" class="content container-fluid">
-
-
 
 
         
@@ -108,10 +108,11 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h3 class="modal-title">Enterprise Form</h3>
                                     </div>
+                                    <form class="form-horizontal" method="POST" action="{{ route('enterprise.store')}}">
+                                        {{ csrf_field() }}
                                     <div class="modal-body form">
 
-                                        <form class="form-horizontal" method="POST" action="{{ url('admin/enterprise.store')}}">
-                                            {{ csrf_field() }}
+
 
                                             <div class="form-body">
 
@@ -130,10 +131,10 @@
                                                 </div>
 
                                                 <div class="form-group{{ $errors->has('EnterpriseContactnumber') ? ' has-error' : '' }}">
-                                                    <label for="EnterpriseName" class="col-md-4 control-label">Company Name</label>
+                                                    <label for="EnterpriseName" class="col-md-4 control-label">Contact Number</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="EnterpriseContactnumber" type="text" class="form-control" name="EnterpriseContactnumber" value="{{ old('EnterpriseContactnumber') }}" required autofocus>
+                                                        <input id="EnterpriseContactnumber" type="number" class="form-control" name="EnterpriseContactnumber" value="{{ old('EnterpriseContactnumber') }}" required autofocus>
 
                                                         @if ($errors->has('EnterpriseContactnumber'))
                                                             <span class="help-block">
@@ -161,7 +162,7 @@
                                                     <label for="EnterpriseEmail" class="col-md-4 control-label">Email</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="EnterpriseEmail" type="text" class="form-control" name="EnterpriseEmail" value="{{ old('EnterpriseEmail') }}" required autofocus>
+                                                        <input id="EnterpriseEmail" type="email" class="form-control" name="EnterpriseEmail" value="{{ old('EnterpriseEmail') }}" required autofocus>
 
                                                         @if ($errors->has('EnterpriseEmail'))
                                                             <span class="help-block">
@@ -172,13 +173,13 @@
                                                 </div>
 
                                             </div>
-                                        </form>
+
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+                                        <button type="submit"  class="btn btn-primary">Save</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
-
+                                    </form>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
@@ -187,7 +188,7 @@
 
 
 
-                    </section>
+                    
             </div>
                     </div>
 </section>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NumberList extends Migration
+class CreateNumberListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,14 @@ class NumberList extends Migration
     {
         Schema::create('NumberList', function (Blueprint $table) {
 
-            $table->foreign('ListId')->references('ListId')->on('userlistdetails');
+            $table->integer('ListId')->unsigned();
             $table->string('NLNumber');
+            $table->timestamps();
 
+        });
+        Schema::table('NumberList', function($table)
+        {
+            $table->foreign('ListId')->references('ListId')->on('userlistdetails');
         });
     }
 
@@ -28,6 +33,7 @@ class NumberList extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('NumberList');
+        Schema::dropIfExists('_number_lists');
     }
 }
+

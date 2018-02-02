@@ -1,9 +1,10 @@
-php artisan make:migration Enterprise_Account   
-php artisan make:migration Enterprise_Message
-php artisan make:migration Number_List
-php artisan make:migration Sub_User
-php artisan make:migration Text_Message
-php artisan make:migration User_List_Details
+php artisan make:migration create_EnterpriseAccounts_table
+php artisan make:migration create_UserListDetails_table  
+php artisan make:migration create_BalanceMessages_table 
+php artisan make:migration create_NumberLists_table 
+php artisan make:migration create_SubUsers_table 
+php artisan make:migration create_TextMessages_table 
+
 
 
 php artisan make:model EnterpriseAccount

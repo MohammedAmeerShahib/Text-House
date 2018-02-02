@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Eloquent\Model;
 
-
-class EnterpriseAccount extends Migration
+class CreateEnterpriseAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,7 +19,7 @@ class EnterpriseAccount extends Migration
             $table->string('EnterpriseAddress');
             $table->string('EnterpriseContactnumber');
             $table->string('EnterpriseEmail');
-
+            $table->timestamps();
         });
     }
 
@@ -32,8 +30,7 @@ class EnterpriseAccount extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EnterpriseAccount');
+        Schema::dropIfExists('_enterprise_accounts');
     }
-
 
 }
