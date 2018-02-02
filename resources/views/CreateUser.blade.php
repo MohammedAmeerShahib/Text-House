@@ -4,8 +4,7 @@
     <section class="content-header">
         <h1>
 
-        </h1>
-        <ol class="breadcrumb">
+	</h1> <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
             <li class="active">Here</li>
         </ol>
@@ -72,8 +71,7 @@
         </table>
 
 
-        <?php   include(app_path().'/Includes/EntCreateList.php'); ?>
+        <?php   include(app_path().'/Includes/CreateList.blade.php'); ?>
 
     </section>
-
 @endsection

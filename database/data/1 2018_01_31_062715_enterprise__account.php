@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\Model;
+
 
 class EnterpriseAccount extends Migration
 {
@@ -14,13 +16,12 @@ class EnterpriseAccount extends Migration
     public function up()
     {
         Schema::create('EnterpriseAccount', function (Blueprint $table) {
-            $table->increments('EnterpriseId');
-            $table->string('EnterpriseUserName')->unique();
+            $table->increments('EnterpriseId')->index();
             $table->string('EnterpriseName');
-			$table->string('EnterpriseAddress');
-			$table->string('EnterpriseContactnumber');
-			$table->string('EnterpriseEmail');
-
+            $table->string('EnterpriseAddress');
+            $table->string('EnterpriseContactnumber');
+            $table->string('EnterpriseEmail');
+            $table->timestamps();
         });
     }
 
@@ -33,4 +34,6 @@ class EnterpriseAccount extends Migration
     {
         Schema::dropIfExists('EnterpriseAccount');
     }
+
+
 }

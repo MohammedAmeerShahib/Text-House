@@ -11,7 +11,11 @@ class EnterpriseAccount extends Model
      * The attributes that are mass assignable.
      *
      * @var array
+     *
      */
+
+    public $table = 'EnterpriseAccount';
+
     protected $fillable = [
         'EnterpriseName', 'EnterpriseAddress','EnterpriseContactnumber','EnterpriseEmail',
     ];

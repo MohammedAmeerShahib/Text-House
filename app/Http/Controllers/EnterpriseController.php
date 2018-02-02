@@ -14,9 +14,10 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
-        $enterprise = EnterpriseAccount::latest()->paginate(5);
-        return view('enterprise.index',compact('enterprise'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+//        $enterprise = EnterpriseAccount::latest()->paginate(5);
+//        return view('enterprise.index',compact('enterprise'))
+//            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('AddEnterprise');
     }
 
     /**
@@ -37,25 +38,15 @@ class EnterpriseController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+//        request()->validate([
+//            'title' => 'required',
+//            'body' => 'required',
+//        ]);
 
-//        EnterpriseAccount::create($request->all());
-//        return redirect()->route('enterprise.index')
-//            ->with('success','Enterprise created successfully');
 
-        EnterpriseAccount::create([
-
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'user_type'=>$userType,
-
-        ]);return redirect()->route('enterprise.index')
-        ->with('success','Enterprise created successfully');
-
+        EnterpriseAccount::create($request->all());
+        return redirect()->route('enterprise.index')
+            ->with('success','Enterprise created successfully');
 
     }
 

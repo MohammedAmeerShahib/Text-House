@@ -63,9 +63,9 @@ Route::group(array('prefix'=>'admin'), function ()
         return view('AddEnterprise');
     });
 
-    Route::get('/enterprise', function () {
-        return view('AddEnterprise');
-    });
+//    Route::get('/enterprise', function () {
+//        return view('AddEnterprise');
+//    });
 
     Route::get('/register-enterprise', function () {
         return view('CreateUser');
@@ -74,6 +74,8 @@ Route::group(array('prefix'=>'admin'), function ()
     Route::get('/log', function () {
         return view('BulkMsg');
     });
+
+    Route::resource('enterprise','EnterpriseController');
 
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class userlistdetails extends Migration
+class UserListDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,19 @@ class userlistdetails extends Migration
     public function up()
     {
         Schema::create('userlistdetails', function (Blueprint $table) {
-            $table->Int('ListId')->index();
-        	$table->string('ListEnterpriseId');
-			$table->string('ListName');
-			$table->string('ListCreatedDate');
-			$table->string('ListLastModified');
-			$table->string('ListSize');
+            $table->increments('ListId')->index();
+            $table->string('username');
+            $table->string('ListName');
+            $table->string('ListCreatedDate');
+            $table->string('ListLastModified');
+            $table->string('ListSize');
 
+        });
+
+
+        Schema::table('userlistdetails', function($table)
+        {
+            $table->foreign('username')->references('username')->on('users');
         });
     }
 
