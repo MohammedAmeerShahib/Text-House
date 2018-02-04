@@ -14,10 +14,13 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
+
         $enterprises = EnterpriseAccount::latest()->paginate(5);
         return view('enterprise.enterprise',compact('enterprises'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
 //        return view('AddEnterprise');
+
+
     }
 
     /**

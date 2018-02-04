@@ -3,7 +3,7 @@
 
     <section class="content-header">
         <h1>
-            Page Header
+            Individual Messege
             <small>Optional description</small>
         </h1>
         <ol class="breadcrumb">
@@ -25,7 +25,7 @@
                     </div>
 
                     <div  style="margin-top: 4%;margin-bottom: 2%">
-                        <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".modal-bulkmsg">
+                        <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".modal-individualMsg">
                             <i class="glyphicon glyphicon-plus"></i>
                             <b>&nbsp;&nbsp;COMPOSE MESSAGE</b>
                         </button>
@@ -102,10 +102,8 @@
                 </div>
             </div>
         </div>
-
-        <?php   include(app_path().'/Includes/ScheduleMsg.blade.php'); ?>
-
-
     </section>
+
+    <?php   include (base_path().'\resources\views\ComposeIndividualMessage.blade.php'); ?>
 
 @endsection
