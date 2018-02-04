@@ -14,10 +14,10 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
-        $enterprise = EnterpriseAccount::latest()->paginate(5);
-        return view('enterprise.index',compact('enterprise'))
+        $enterprises = EnterpriseAccount::latest()->paginate(5);
+        return view('enterprise.enterprise',compact('enterprises'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-        return view('AddEnterprise');
+//        return view('AddEnterprise');
     }
 
     /**
@@ -38,10 +38,12 @@ class EnterpriseController extends Controller
      */
     public function store(Request $request)
     {
-//        request()->validate([
-//            'title' => 'required',
-//            'body' => 'required',
-//        ]);
+        request()->validate([
+            'EnterpriseName' => 'required|string|unique:EnterpriseAccount',
+            'EnterpriseContactnumber' => 'required',
+            'EnterpriseEmail' => 'required|email',
+            'EnterpriseAddress' => 'required',
+        ]);
 
 
         EnterpriseAccount::create($request->all());
@@ -67,9 +69,11 @@ class EnterpriseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(EnterpriseAccount $enterprise)
     {
-        //
+
+        return view('enterprise.editEnterprise',compact('enterprise',$enterprise))->with('status', 'Profile updated!');
+
     }
 
     /**
@@ -81,7 +85,18 @@ class EnterpriseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+//            'EnterpriseName' => 'required|string|unique:EnterpriseAccount',
+            'EnterpriseContactnumber' => 'required',
+            'EnterpriseEmail' => 'required|email',
+            'EnterpriseAddress' => 'required',
+        ]);
+
+        EnterpriseAccount::find($id)->update($request->all());
+
+        return redirect()->route('enterprise.index')
+
+            ->with('success','Article updated successfully');
     }
 
     /**
