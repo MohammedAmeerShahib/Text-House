@@ -10,6 +10,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Text House</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">-->
@@ -280,8 +282,8 @@ desired effect
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="{{ url('admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                <li><a href="{{ url('admin/enterprise')}}"><i class="fa fa-users"></i> <span>Enterprise</span></a></li>
-                <li><a href="{{ url('admin/register-enterprise')}}"><i class="fa fa-users"></i> <span>Create User</span></a></li>
+                <li><a href="{{ route('enterprise.index') }}"><i class="fa fa-users"></i> <span>Enterprise</span></a></li>
+                <li><a href="{{ route('user.index')}}"><i class="fa fa-users"></i> <span>Create User</span></a></li>
                 <li><a href="{{ url('admin/log')}}"><i class="fa fa-envelope"></i> <span>Log</span></a></li>
                 <li><a href="{{ url('admin/account')}}"><i class="fa fa-database"></i> <span>Account</span></a></li>
 
@@ -423,6 +425,9 @@ desired effect
 
 <script>
     $(function () {
+
+
+
         //Initialize Select2 Elements
         $('.select2').select2()
 

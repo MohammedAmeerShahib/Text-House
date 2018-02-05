@@ -15,9 +15,6 @@
 <!-- Main content -->
 <section style="background-color:white" class="content container-fluid">
 
-    <!--------------------------
-      | Your Page Content Here |
-      -------------------------->
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -25,12 +22,10 @@
             </div>
     @endif
 
-            <!-- left column -->
 
-                <!-- /.box-header -->
 
                     <div class="col-sm-2" style="margin-top: 4%;margin-bottom: 2%">
-            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".bs-modal-ce">
+            <button id="createEnterprise" type="button"  class="btn btn-block btn-success " data-toggle="modal" data-target=".bs-modal-ce">
                 <i class="glyphicon glyphicon-plus"></i>
                 <b>&nbsp;&nbsp;CREATE</b>
             </button>
@@ -44,35 +39,51 @@
             <tr role="row">
                 <th width="5%">Number</th>
                 <th width="22%">Enterprise Name</th>
-                <th width="15%">Contatc Number</th>
+                <th width="15%">Contatct Number</th>
                 <th width="23%">Email</th>
                 <th width="25%">Address</th>
                 <th width="10%">Action</th>
             </tr>
             </thead>
             <tbody>
-
+            @foreach ($enterprises as $enterprise)
             <tr>
-                <td></td>
-                <td></td>
-                <td>0112000400</td>
-                <td>info@microsoft.lk</td>
-                <td>Colombo</td>
+                <td>{{ ++$i }}</td>
+                <td>{{ $enterprise->EnterpriseName}}</td>
+                <td>{{ $enterprise->EnterpriseContactnumber}}</td>
+                <td>{{ $enterprise->EnterpriseEmail}}</td>
+                <td>{{ $enterprise->EnterpriseAddress}}</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Edit  </a>
+                    <a href="{{ route('enterprise.edit',$enterprise) }}" class="btn btn-sm btn-primary"  title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Edit  </a>
+
                 </td>
             </tr>
+            @endforeach
 
-                        </tbody>
+            </tbody>
         </table>
 
 
+    {!! $enterprises->links() !!}
+
 </section>
 
-                        <!-- Bootstrap modal -->
 
-
-
-
+@include('enterprise.addEnterprise')
 
 @endsection
+
+@if ($errors->any())
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        $(function($) {
+
+            $('#createEnterprise\n').click();
+        })
+
+    </script>
+
+@endif
+

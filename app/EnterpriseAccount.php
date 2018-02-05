@@ -15,6 +15,7 @@ class EnterpriseAccount extends Model
      */
 
     public $table = 'EnterpriseAccount';
+    protected $primaryKey = 'EnterpriseId';
 
     protected $fillable = [
         'EnterpriseName', 'EnterpriseAddress','EnterpriseContactnumber','EnterpriseEmail',
