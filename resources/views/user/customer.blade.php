@@ -31,7 +31,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $enterprise->EnterpriseName}}</td>
                 <td>{{ $enterprise->EnterpriseEmail}}</td>
-                <td><a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" data-toggle="modal" data-target=".bs-modal-sm"><i class="glyphicon glyphicon-user"></i>&nbsp Create Account  </a>
+                <td><a class="btn btn-sm btn-primary" href="{{ route('customer.edit',$enterprise->EnterpriseId) }}" title="Edit" ><i class="glyphicon glyphicon-user"></i>&nbsp Create Account  </a>
 
                 </td>
             </tr>
@@ -39,7 +39,6 @@
             </tbody>
         </table>
 
-    <?php   include(app_path().'/Includes/CreateList.blade.php'); ?>
 
     </section>
 

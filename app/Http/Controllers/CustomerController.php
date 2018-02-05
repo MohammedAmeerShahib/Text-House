@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\EnterpriseAccount;
 use App\User;
 
-
-class UserController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,8 @@ class UserController extends Controller
            ->get()
            ;
 
-        return view('CreateUser',compact('enterprises'))
+//        $enterprises= serialize($enterprisesObject);
+        return view('user.customer',compact('enterprises'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -69,6 +69,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $enterprise=EnterpriseAccount::find($id);
+        return view('user.createCustomer',compact('enterprise',$enterprise))->with('status', 'Create USer');
+
     }
 
     /**

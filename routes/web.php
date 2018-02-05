@@ -75,7 +75,7 @@ Route::group(array('prefix'=>'admin'), function ()
         return view('BulkMsg');
     });
 
-    Route::resource('user','UserController');
+    Route::resource('customer','CustomerController');
 
     Route::resource('enterprise','EnterpriseController');
 

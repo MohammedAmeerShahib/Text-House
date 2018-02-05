@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+//use App\Http\Controllers\Auth\Request;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -63,21 +65,27 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        if (Route::current()->is('admin/*')) {
-
-            $userType='User';
-
-        }else{
-
-            $userType='SubUser';
-        }
-
-
         return User::create([
+            'EnterpriseId'=>$data['EnterpriseId'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'user_type'=>$userType,
+            'User_type'=>$data['userType'],
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $this->create($request->all());
+
+        return redirect('/admin')->with('message','Account successfully created');
     }
 }

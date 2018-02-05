@@ -283,7 +283,7 @@ desired effect
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="{{ url('admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{ route('enterprise.index') }}"><i class="fa fa-users"></i> <span>Enterprise</span></a></li>
-                <li><a href="{{ route('user.index')}}"><i class="fa fa-users"></i> <span>Create User</span></a></li>
+                <li><a href="{{ route('customer.index')}}"><i class="fa fa-users"></i> <span>Create User</span></a></li>
                 <li><a href="{{ url('admin/log')}}"><i class="fa fa-envelope"></i> <span>Log</span></a></li>
                 <li><a href="{{ url('admin/account')}}"><i class="fa fa-database"></i> <span>Account</span></a></li>
 

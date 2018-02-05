@@ -75,7 +75,7 @@ class EnterpriseController extends Controller
     public function edit(EnterpriseAccount $enterprise)
     {
 
-        return view('enterprise.editEnterprise',compact('enterprise',$enterprise))->with('status', 'Profile updated!');
+        return view('enterprise.editEnterprise',compact('enterprise',$enterprise))->with('status', 'Edit Enterprise');
 
     }
 
