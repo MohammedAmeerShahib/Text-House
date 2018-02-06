@@ -41,4 +41,15 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+    public  function isAdmin(){
+
+        if(User_type=='Admin'){
+
+            return true;
+        }else{
+
+            return false;
+        }
+    }
 }

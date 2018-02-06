@@ -56,7 +56,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::group(array('prefix'=>'admin'), function ()
+Route::group(array('prefix'=>'admin','middleware' => ['auth','checkAdmin']), function ()
 {
     Route::get('/',function(){
 
@@ -79,9 +79,9 @@ Route::group(array('prefix'=>'admin'), function ()
 
     Route::resource('enterprise','EnterpriseController');
 
-});
+}) ;
 
-Route::group(array('prefix'=>'user'), function ()
+Route::group(array('prefix'=>'user','middleware' => ['auth','checkUser']), function ()
 {
     Route::get('/',function(){
 

@@ -39,9 +39,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username()
-    {
-        return 'username';
-    }
+//    protected function authenticated(Request $request, $user)
+//    {
+//        echo "Already Login";
+//
+//        if ($user->User_type == 'User') {
+//            return redirect()->intended(route('/user'));
+//        }
+//        return redirect()->intended(route('/admin'));
+//    }
+
+//    public function username()
+//    {
+//        return 'username';
+//    }
 
 }

@@ -16,16 +16,17 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->user_type == 'User')
+        if (Auth::user()->User_type == 'User')
         {
+            return redirect()->guest('/user');
+//            return redirect()->intended('/user');
 
-            return redirect()->intended('/user');
 
-
-        }elseif (Auth::user()->user_type == 'Admin')
+        }elseif (Auth::user()->User_type == 'Admin')
             {
+                return redirect()->guest('/admin');
 
-                return redirect()->intended('/admin');
+//                return redirect()->intended('/admin');
 
             }
 
