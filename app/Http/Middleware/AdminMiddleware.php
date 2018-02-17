@@ -18,15 +18,13 @@ class AdminMiddleware
     {
         if (Auth::user()->User_type == 'User')
         {
-            return redirect()->guest('/user');
-//            return redirect()->intended('/user');
+            return redirect()->intended('/user');
 
 
         }elseif (Auth::user()->User_type == 'Admin')
             {
-                return redirect()->guest('/admin');
 
-//                return redirect()->intended('/admin');
+                return redirect()->intended('/admin');
 
             }
 

@@ -15,6 +15,12 @@
 
     <section style="background-color:white" class="content container-fluid">
 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissable">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+
         <table id="SMS" data-show-header="true" data-id-field="name" data-pagination="true" data-page-list="[5, 10, 25, 50, 100, ALL]" data-page-size="5"
                class="table table-bordered table-hover dataTable" role="grid">
             <thead>

@@ -75,6 +75,11 @@ Route::group(array('prefix'=>'admin','middleware' => ['auth','checkAdmin']), fun
         return view('BulkMsg');
     });
 
+    Route::get('/enterprise/{id}/reserve','EnterpriseController@reserve')->name('enterprise.reserve');
+
+    Route::put('/enterprise/reserve','EnterpriseController@updateBalance')->name('enterprise.updateBalance');
+
+
     Route::resource('customer','CustomerController');
 
     Route::resource('enterprise','EnterpriseController');

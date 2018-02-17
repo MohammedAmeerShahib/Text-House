@@ -20,7 +20,7 @@
                 {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>--}}
                 {{-- <h3 class="modal-title">Enterprise Form</h3>--}}
             </div>
-            <form  class="form-horizontal" method="POST" action="{{ route('register') }}">
+            <form  class="form-horizontal" method="POST" action="{{ route('customer.store') }}">
                 {{ csrf_field() }}
                 <div class="modal-body">
 
@@ -29,7 +29,7 @@
                     <div class="form-body">
 
                         <input type="hidden" value={{$enterprise->EnterpriseId}} name="EnterpriseId" />
-                        <input type="hidden" value="User" name="userType"/>
+                        <input type="hidden" value="User" name="User_type"/>
 
                         <div class="form-group">
                             <label for="EnterpriseName" class="col-md-2 control-label">Company Name</label>

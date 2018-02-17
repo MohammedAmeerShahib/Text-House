@@ -47,6 +47,24 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            'username' => 'required|string|max:20|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+         User::create([
+            'EnterpriseId'=>$request->input('EnterpriseId'),
+            'username' =>$request->input('username'),
+            'email' =>$request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'User_type'=>$request->input('User_type'),
+        ]);
+
+
+//        User::create($request->all());
+        return redirect()->route('customer.index')
+            ->with('success','Account created successfully');
     }
 
     /**
@@ -70,7 +88,7 @@ class CustomerController extends Controller
     {
         //
         $enterprise=EnterpriseAccount::find($id);
-        return view('user.createCustomer',compact('enterprise',$enterprise))->with('status', 'Create USer');
+        return view('user.createCustomer',compact('enterprise',$enterprise))->with('status', 'Create User');
 
     }
 

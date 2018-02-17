@@ -14,16 +14,18 @@ class CreateBalanceMessagesTable extends Migration
     public function up()
     {
         Schema::create('BalanceMessage', function (Blueprint $table) {
-            $table->increments('MessageId')->index();
-            $table->string('username');
-            $table->string('ServiceProvider');
-            $table->integer('Balance');
+            $table->increments('id')->index();
+            $table->integer('userId')->unique()->unsigned();
+            $table->integer('DialogBalance')->default(0);
+            $table->integer('MobitelBalance')->default(0);
+            $table->integer('AirtelBalance')->default(0);
+            $table->integer('EtisalatBalance')->default(0);
             $table->timestamps();
         });
 
         Schema::table('BalanceMessage', function($table)
         {
-            $table->foreign('username')->unique()-> references('username')->on('users');
+            $table->foreign('userId')-> references('id')->on('users');
         });
     }
 

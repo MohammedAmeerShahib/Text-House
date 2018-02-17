@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -49,6 +49,8 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        echo "Validate";
+
         return Validator::make($data, [
             'username' => 'required|string|max:20|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
@@ -64,7 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         return User::create([
             'EnterpriseId'=>$data['EnterpriseId'],
             'username' => $data['username'],
@@ -86,6 +87,6 @@ class RegisterController extends Controller
 
         $this->create($request->all());
 
-        return redirect('/admin')->with('message','Account successfully created');
+        return redirect('/admin/customer')->with('message','Account successfully created');
     }
 }

@@ -28,11 +28,11 @@
         <table id="SMS" class="table table-bordered table-hover dataTable" role="grid">
             <thead>
             <tr role="row">
-                <th width="7%">Number</th>
-                <th width="15%">Created At</th>
-                <th width="15%">Last Updated</th>
-                <th width="10%">List size </th>
-                <th width="20%">Action</th>
+                <th >Number</th>
+                <th >Created At</th>
+                <th >Last Updated</th>
+                <th >List size </th>
+                <th >Action</th>
             </tr>
             </thead>
             <tbody>

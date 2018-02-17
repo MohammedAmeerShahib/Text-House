@@ -37,12 +37,12 @@
         <table id="SMS" class="table table-bordered table-hover dataTable" role="grid">
             <thead>
             <tr role="row">
-                <th width="5%">Number</th>
-                <th width="22%">Enterprise Name</th>
-                <th width="15%">Contatct Number</th>
-                <th width="23%">Email</th>
-                <th width="25%">Address</th>
-                <th width="10%">Action</th>
+                <th>Number</th>
+                <th >Enterprise Name</th>
+                <th>Contact Number</th>
+                <th >Email</th>
+                <th >Address</th>
+                <th >Action</th>
             </tr>
             </thead>
             <tbody>
@@ -55,6 +55,8 @@
                 <td>{{ $enterprise->EnterpriseAddress}}</td>
                 <td>
                     <a href="{{ route('enterprise.edit',$enterprise) }}" class="btn btn-sm btn-primary"  title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Edit  </a>
+                    <a href="{{ route('enterprise.reserve',$enterprise) }}" class="btn btn-sm btn-success"  title="Reserve" ><i class="glyphicon glyphicoen-pencil"></i> Reserve  </a>
+                    <button type="button" data-target="#myModal" data-toggle="modal" data-tooltip="tooltip" class="btn btn-success glyphicon glyphicon-transfer registerBtn"  data_value="{{ $enterprise }}"></button>
 
                 </td>
             </tr>
@@ -70,7 +72,7 @@
 
 
 @include('enterprise.addEnterprise')
-
+@include('SampleModel')
 @endsection
 
 @if ($errors->any())
