@@ -20,7 +20,7 @@
                 {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>--}}
                 {{-- <h3 class="modal-title">Enterprise Form</h3>--}}
             </div>
-            <form  class="form-horizontal" method="POST" action="{{ route('enterprise.updateBalance') }}">
+            <form  class="form-horizontal" method="POST" action="{{ route('enterprise.updateBalance',$enterprise->EnterpriseId) }}">
                 <input type="hidden" name="_method" value="PUT">
                 {{ csrf_field() }}
                 <div class="modal-body edit-content form">
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Dialog</label>
                             <div class="col-md-9">
-                                <input id="dialog" name="dialog" placeholder="Dialog" class="form-control" type="text" required>
+                                <input id="dialog" name="dialog" placeholder="Dialog" class="form-control" type="text" >
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Mobitel</label>
                             <div class="col-md-9">
-                                <input type ="text" id="mobitel" name="mobitel" placeholder="Mobitel" class="form-control" required>
+                                <input type ="text" id="mobitel" name="mobitel" placeholder="Mobitel" class="form-control" >
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Airtel</label>
                             <div class="col-md-9">
-                                <input type ="text" id="airtel" name="airtel"  placeholder="Airtel" class="form-control"  required>
+                                <input type ="text" id="airtel" name="airtel"  placeholder="Airtel" class="form-control"  >
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3">Etisalat</label>
                             <div class="col-md-9">
-                                <input type ="text" id="etisalat" name="etisalat"  placeholder="Etisalat" class="form-control"  required>
+                                <input type ="text" id="etisalat" name="etisalat"  placeholder="Etisalat" class="form-control"  >
                                 <span class="help-block"></span>
                             </div>
                         </div>

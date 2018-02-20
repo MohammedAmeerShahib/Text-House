@@ -17,12 +17,11 @@ class EnterpriseController extends Controller
     public function index()
     {
 
+
         $enterprises = EnterpriseAccount::latest()->paginate(5);
         return view('enterprise.enterprise', compact('enterprises'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
 //        return view('AddEnterprise');
-
-
     }
 
     /**
@@ -112,20 +111,23 @@ class EnterpriseController extends Controller
             ->with('success', 'Article updated successfully');
     }
 
-    public function updateBalance(Request $request)
+    public function updateBalance(Request $request,$id)
     {
 
-        $userId=Auth::user()->id;
-        echo $userId;
+        $userId=User::where('EnterpriseId',$id)->first()->id;
 
         if(BalanceMessage::where('userId',$userId)->count()>0) {
 
-            $balance=BalanceMessage::where('userId',$userId);
+            $balance=BalanceMessage::where('userId',$userId)->first();
 
-            $dialog=$balance->increment('DialogBalance' ,4);
-            $mobitel=$balance->increment('MobitelBalance' ,$request->input('mobitel'));
-            $airtel=$balance->increment('AirtelBalance' ,$request->input('airtel'));
-            $etisalat=$balance->increment('EtisalatBalance' ,$request->input('etisalat'));
+            $dialogBalance=$balance->DialogBalance;
+            $mobitelBalance=$balance->MobitelBalance;
+            $airtelBalance=$balance->AirtelBalance;
+            $etisalatBalance=$balance->EtisalatBalance;
+            $dialog =$dialogBalance+=$request->input('dialog');
+            $mobitel=$mobitelBalance +=$request->input('mobitel');
+            $airtel=$airtelBalance+=$request->input('airtel');
+            $etisalat=$etisalatBalance+=$request->input('etisalat');
 
             $balance->update(['DialogBalance'=>$dialog,'MobitelBalance'=>$mobitel,'AirtelBalance'=>$airtel,'EtisalatBalance'=>$etisalat]);
 

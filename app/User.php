@@ -29,17 +29,17 @@ class User extends Authenticatable
 
     public function balanceMessage()
     {
-        return $this->hasMany('App\BalanceMessage','username');
+        return $this->hasMany('App\BalanceMessage','userId');
     }
 
     public function userList()
     {
-        return $this->hasMany('App\UserListDetails','username');
+        return $this->hasMany('App\UserListDetails','userId');
     }
 
     public function textMessage()
     {
-        return $this->hasMany('App\TextMessage','username');
+        return $this->hasMany('App\TextMessage','userId');
     }
 
     public function enterpriseAccount()

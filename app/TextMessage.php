@@ -11,13 +11,16 @@ class TextMessage extends Model
      *
      * @var array
      */
+    protected $table = 'TextMessage';
+    protected $primaryKey = 'MessageId';
+
     protected $fillable = [
-        'username', 'MessageReceiver', 'SentMessage',
+        'userId', 'MessageReceiver', 'SentMessage','Status',
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\User','username');
+        return $this->belongsTo('App\User','id');
     }
 }
 

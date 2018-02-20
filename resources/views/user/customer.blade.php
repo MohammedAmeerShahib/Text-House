@@ -21,8 +21,8 @@
             </div>
         @endif
 
-        <table id="SMS" data-show-header="true" data-id-field="name" data-pagination="true" data-page-list="[5, 10, 25, 50, 100, ALL]" data-page-size="5"
-               class="table table-bordered table-hover dataTable" role="grid">
+        <table id="SMS" class="table table-bordered table-hover dataTable" role="grid" data-show-header="true" data-id-field="name" data-pagination="true" data-page-list="[5, 10, 25, 50, 100, ALL]" data-page-size="5"
+               >
             <thead>
             <tr role="row">
                 <th width="3%">#</th>
@@ -47,6 +47,5 @@
 
 
     </section>
-
 
 @endsection

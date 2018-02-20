@@ -26,7 +26,6 @@
     <div class="modal-body edit-content form">
 
 
-
         <div class="form-body">
 
             <div class="form-group{{ $errors->has('EnterpriseName') ? ' has-error' : '' }}">

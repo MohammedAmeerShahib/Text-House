@@ -11,6 +11,8 @@ class SubUser extends Model
      *
      * @var array
      */
+    public $table = 'subUser';
+
     protected $fillable = [
         'EnterpriseId', 'SubUserName',
     ];

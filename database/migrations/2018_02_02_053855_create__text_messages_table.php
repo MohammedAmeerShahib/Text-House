@@ -15,16 +15,17 @@ class CreateTextMessagesTable extends Migration
     {
         Schema::create('textmessage', function (Blueprint $table) {
             $table->increments('MessageId')->index();
-            $table->string('username');
+            $table->integer('userId')->unsigned();
             $table->timestamp('MessageTimeStamp')->timestamps();
             $table->string('MessageReceiver');
             $table->string('SentMessage');
+            $table->string('Status');
             $table->timestamps();
         });
 
         Schema::table('textmessage', function($table)
         {
-            $table->foreign('username')->references('username')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 

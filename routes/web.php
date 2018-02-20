@@ -71,13 +71,13 @@ Route::group(array('prefix'=>'admin','middleware' => ['auth','checkAdmin']), fun
 //        return view('CreateUser');
 //    });
 
-    Route::get('/log', function () {
-        return view('BulkMsg');
-    });
+//    Route::get('/log', function () {
+//        return view('BulkMsg');
+//    });
 
     Route::get('/enterprise/{id}/reserve','EnterpriseController@reserve')->name('enterprise.reserve');
 
-    Route::put('/enterprise/reserve','EnterpriseController@updateBalance')->name('enterprise.updateBalance');
+    Route::put('/enterprise/{id}/reserve','EnterpriseController@updateBalance')->name('enterprise.updateBalance');
 
 
     Route::resource('customer','CustomerController');
@@ -93,17 +93,32 @@ Route::group(array('prefix'=>'user','middleware' => ['auth','checkUser']), funct
         return view('UserDashboard');
     });
 
+    Route::resource('user-list','ListController');
+
+    Route::resource('singleMsg','SingleMessageController');
+
+    Route::get('/getSingleMsg','SingleMessageController@getData')->name('singleMsg.data');
+
+//    Route::get('singleMsg', 'SingleMessageController', [
+//        'getData'  => 'singleMsg.data',
+//        'getIndex' => 'singleMsg',
+//    ]);
+
     Route::get('/bulkmsg', function () {
         return view('BulkMsg');
     });
 
-    Route::get('/singlemsg', function () {
-        return view('IndividualMsg');
-    });
+    Route::get('/sub-user','CustomerController@getSubUsers')->name('subuser.index');
 
-    Route::get('/userlist', function () {
-        return view('UserList');
-    });
+
+//    Route::get('/singlemsg', function () {
+//        return view('IndividualMsg');
+//    });
+
+
+//    Route::get('/userlist', function () {
+//        return view('UserList');
+//    });
 
 
 });

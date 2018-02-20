@@ -11,8 +11,10 @@ class UserListDetails extends Model
      *
      * @var array
      */
+    public $table = 'userListDetails';
+
     protected $fillable = [
-        'username', 'ListName', 'ListSize',
+        'userId', 'ListName', 'ListSize',
     ];
 
     public function numberList()
@@ -22,6 +24,6 @@ class UserListDetails extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','username');
+        return $this->belongsTo('App\User','id');
     }
 }

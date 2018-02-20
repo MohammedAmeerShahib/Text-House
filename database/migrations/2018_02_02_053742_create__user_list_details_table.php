@@ -15,10 +15,8 @@ class CreateUserListDetailsTable extends Migration
     {
         Schema::create('userlistdetails', function (Blueprint $table) {
             $table->increments('ListId')->index();
-            $table->string('username');
+            $table->integer('userId')->unsigned();
             $table->string('ListName');
-            $table->string('ListCreatedDate')->timestamps();
-            $table->string('ListLastModified')->timestamps();
             $table->string('ListSize');
             $table->timestamps();
 
@@ -27,7 +25,7 @@ class CreateUserListDetailsTable extends Migration
 
         Schema::table('userlistdetails', function($table)
         {
-            $table->foreign('username')->references('username')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 

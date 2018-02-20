@@ -1,6 +1,8 @@
 @extends('UserLayout')
 @section('content')
 
+
+
     <section class="content-header">
         <h1>
             Individual Messege
@@ -14,51 +16,67 @@
 
     <section class="content container-fluid">
 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissable">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Inbox</h3>
+                <h3 class="box-title">
+                    <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".modal-individualMsg">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <b>&nbsp;&nbsp;COMPOSE MESSAGE</b>
+                    </button>
+                </h3>
 
-                <div class="box-tools pull-right">
-                    <div class="has-feedback">
-                        <input type="text" class="form-control input-sm" placeholder="Search Mail">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
 
-                    <div  style="margin-top: 4%;margin-bottom: 2%">
-                        <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target=".modal-individualMsg">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            <b>&nbsp;&nbsp;COMPOSE MESSAGE</b>
-                        </button>
-
-                    </div>
-                </div>
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
                 <div class="mailbox-controls">
                     <!-- Check all button -->
-                    <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
+                    <button type="button" class="btn btn-default btn-sm "><input type="checkbox" class="icheckbox_flat-blue">
                     </button>
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
 
                     <!-- /.btn-group -->
+
                 </div>
 
-                <div class="table-responsive mailbox-messages">
-                    <table class="table table-hover table-striped no-margin">
-                        <tbody>
+                <div class="table-responsive col-md-12">
+                    <table id="singleMsg" class="table table-hover table-striped no-margin">
+
+                    <thead>
                         <tr>
-                            <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                            <td><b>1</b></td>
-                            <td >02:30:16 <br> 17/01/2018</td>
-                            <td>0771234567</td>
-                            <td>First Message sent to this number as expected deliverd</td>
-                            <td><span class="label label-primary">Delivered</span></td>
+                            <th></th>
+                            <th>Sent At</th>
+                            <th>Receiver</th>
+                            <th>Message</th>
+                            <th>Status</th>
                         </tr>
-                        
-                        </tbody>
+                        </thead>
+                        {{--<tbody>--}}
+                        {{--@foreach ($singleMSgs as $singleMSg)--}}
+                            {{--<tr>--}}
+                            {{--<td><input class="icheckbox_flat-blue"type="checkbox" ></td>--}}
+                            {{--<td>{{ ++$i }}</td>--}}
+                            {{--<td >{{$singleMSg->MessageTimeStamp}}</td>--}}
+                            {{--<td>{{$singleMSg->MessageReceiver}}</td>--}}
+                            {{--<td>{{$singleMSg->SentMessage}}</td>--}}
+
+                                {{--@if($singleMSg->Status.equalToIgnoringCase("Delivered"))--}}
+                            {{--<td><span class="label label-primary">Delivered</span></td>--}}
+                                    {{--@else--}}
+                                    {{--<td><span class="label label-primary">Undelivered</span></td>--}}
+                                    {{--@endif--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+
+                        {{--</tbody>--}}
                     </table>
                     <!-- /.table -->
                 </div>
@@ -73,6 +91,29 @@
         </div>
     </section>
 
-    <?php   include (base_path().'\resources\views\ComposeIndividualMessage.blade.php'); ?>
+@include('message.ComposeSingleMessage')
+
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(function() {
+
+            console.log("Came");
+            $('#singleMsg').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('singleMsg.data') !!}',
+                columns: [
+                    {data: 'checkbox', name: 'checkbox', orderable: false, searchable: false},
+                    { data: 'MessageTimeStamp', name: 'MessageTimeStamp' },
+                    { data: 'MessageReceiver', name: 'MessageReceiver' },
+                    { data: 'SentMessage', name: 'SentMessage' },
+                    { data: 'Status', name: 'Status' },
+                ]
+
+            });
+        });
+    </script>
+@endpush

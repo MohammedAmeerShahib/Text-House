@@ -26,6 +26,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.min.css" />
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="  {{ URL::asset('css/AdminLTE.min.css') }}">
 
@@ -309,10 +311,10 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ url('user')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="{{ url('user/userlist')}}"><i class="fa fa-users"></i> <span>User List</span></a></li>
-        <li><a href="{{ url('user/singlemsg')}}"><i class="fa fa-envelope"></i> <span>Single Message</span></a></li>
+        <li><a href="{{ route('user-list.index')}}"><i class="fa fa-users"></i> <span>User List</span></a></li>
+        <li><a href="{{ route('singleMsg.index')}}"><i class="fa fa-envelope"></i> <span>Single Message</span></a></li>
         <li><a href="{{ url('user/bulkmsg')}}"><i class="fa fa-database"></i> <span>Bulk Message</span></a></li>
-        <li><a href="#"><i class="fa fa-area-chart"></i> <span>Account</span></a></li>
+        <li><a href="{{ route('subuser.index')}}"><i class="fa fa-area-chart"></i> <span>Account</span></a></li>
 
         {{--<li class="treeview">--}}
           {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
@@ -431,10 +433,19 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
 
-<!-- Latest compiled JavaScript -->
+{{--<!-- Latest compiled JavaScript -->--}}
+{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- DataTables -->
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+{{--<!-- Latest compiled JavaScript -->--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+@stack('scripts')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
 

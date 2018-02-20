@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\TextMessage;
+use Yajra\Datatables\Datatables;
 use App\EnterpriseAccount;
 use App\User;
-use App\SubUser;
 
-class CustomerController extends Controller
+
+class SingleMessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,24 +20,40 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        //
+//        $singleMSgs = TextMessage::latest()->paginate(5);
+//        return view('message.SingleMsg', compact('singleMSgs'))
+//            ->with('i', (request()->input('page', 1) - 1) * 5);
 
-       $enterprises= DB::table('EnterpriseAccount')->leftJoin('users', 'EnterpriseAccount.EnterpriseId', '=', 'users.EnterpriseId')
-            ->select('EnterpriseAccount.*')
-           ->whereNull('users.EnterpriseId')
-           ->get()
-           ;
-
-//        $enterprises= serialize($enterprisesObject);
-        return view('user.customer',compact('enterprises'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('message.SingleMsg');
     }
 
-    public function getSubUsers()
+    public function getIndex()
     {
+        return view('message.SingleMsg');
+    }
 
-        $subUsers = SubUser::latest()->paginate(5);
-        return view('user.subUser', compact('subUsers'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+    public function getData(){
+
+        $enterpriseId=Auth::user()->EnterpriseId;
+
+
+        $users=EnterpriseAccount::find($enterpriseId)->user;
+
+//        $userId=$users->pluck('id');
+
+        $messages = DB::table('TextMessage')
+            ->whereIn('userId',$users->pluck('id') )->get();
+
+//        $message=TextMessage::where('userId',$userId)->get();
+//
+        return Datatables::of($messages)
+            ->addColumn('checkbox', function ($message) {
+                return '<input type="checkbox" id="'.$message->MessageId.'" class="icheckbox_flat-blue" >';
+            })
+            ->rawColumns(['checkbox'])
+            ->make(true);
+
     }
 
     /**
@@ -57,23 +76,23 @@ class CustomerController extends Controller
     {
         //
         request()->validate([
-            'username' => 'required|string|max:20|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'MessageReceiver' => 'required',
+            'SentMessage'=>'required',
         ]);
 
-         User::create([
-            'EnterpriseId'=>$request->input('EnterpriseId'),
-            'username' =>$request->input('username'),
-            'email' =>$request->input('email'),
-            'password' => bcrypt($request->input('password')),
-            'User_type'=>$request->input('User_type'),
+        $userId=Auth::user()->id;
+
+        TextMessage::create([
+            'userId'=> $userId,
+            'MessageReceiver' => $request->input('receiverNo'),
+            'SentMessage' => $request->input('message'),
+            'Status' => 'Delivered',
         ]);
 
 
-//        User::create($request->all());
-        return redirect()->route('customer.index')
-            ->with('success','Account created successfully');
+        return redirect()->route('singleMsg.index')
+        ->with('success', 'Message Sent Successfully');
+
     }
 
     /**
@@ -96,9 +115,6 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
-        $enterprise=EnterpriseAccount::find($id);
-        return view('user.createCustomer',compact('enterprise',$enterprise))->with('status', 'Create User');
-
     }
 
     /**

@@ -28,6 +28,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.min.css" />
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="  {{ URL::asset('css/AdminLTE.min.css') }}">
 
@@ -313,8 +316,8 @@ desired effect
                 <li class="active"><a href="{{ url('admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{ route('enterprise.index') }}"><i class="fa fa-users"></i> <span>Enterprise</span></a></li>
                 <li><a href="{{ route('customer.index')}}"><i class="fa fa-users"></i> <span>Create User</span></a></li>
-                <li><a href="{{ url('admin/log')}}"><i class="fa fa-envelope"></i> <span>Log</span></a></li>
-                <li><a href="{{ url('admin/account')}}"><i class="fa fa-database"></i> <span>Account</span></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> <span>Log</span></a></li>
+                <li><a href="#"><i class="fa fa-database"></i> <span>Account</span></a></li>
 
                 {{--<li class="treeview">--}}
                 {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
@@ -433,10 +436,16 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
 
-<!-- Latest compiled JavaScript -->
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- DataTables -->
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+{{--<!-- Latest compiled JavaScript -->--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
 
@@ -453,43 +462,48 @@ desired effect
 <script src="{{ URL::asset('js/icheck.min.js') }}"></script>
 
 <script>
-    $(function () {
 
+    // $(document).ready(function () {
+    //     $('#SMS').DataTable();
+    // });
 
-
-        //Initialize Select2 Elements
-        $('.select2').select2()
-
-        // //Datemask dd/mm/yyyy
-        // $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-        // //Datemask2 mm/dd/yyyy
-        // $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-        // //Money Euro
-        // $('[data-mask]').inputmask()
-
-
-        //Date picker
-        $('#datepicker').datepicker({
-            autoclose: true
-        })
-
-        //Date picker
-        $('#datepicker2').datepicker({
-            autoclose: true
-        })
-
-
-        //Timepicker
-        $('#timepicker').timepicker({
-            showInputs: false
-        })
-
-//Timepicker
-        $('#timepicker2').timepicker({
-            showInputs: false
-        })
-
-    })
+//     $(function () {
+//
+//
+//
+//         //Initialize Select2 Elements
+//         $('.select2').select2()
+//
+//         // //Datemask dd/mm/yyyy
+//         // $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+//         // //Datemask2 mm/dd/yyyy
+//         // $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+//         // //Money Euro
+//         // $('[data-mask]').inputmask()
+//
+//
+//         //Date picker
+//         $('#datepicker').datepicker({
+//             autoclose: true
+//         })
+//
+//         //Date picker
+//         $('#datepicker2').datepicker({
+//             autoclose: true
+//         })
+//
+//
+//         //Timepicker
+//         $('#timepicker').timepicker({
+//             showInputs: false
+//         })
+//
+// //Timepicker
+//         $('#timepicker2').timepicker({
+//             showInputs: false
+//         })
+//
+//     })
 </script>
 
 

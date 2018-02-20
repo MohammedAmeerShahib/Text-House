@@ -3,7 +3,7 @@
 
     <section class="content-header">
         <h1>
-            Page Header
+            Bulk Message
             <small>Optional description</small>
         </h1>
         <ol class="breadcrumb">
@@ -49,47 +49,7 @@
         <div class="table-responsive mailbox-messages">
             <table class="table table-hover table-striped no-margin">
                 <tbody>
-                <tr>
-                    <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                    <td><b>1</b></td>
-                    <td >02:30:16 <br> 17/01/2018</td>
-                    <td>0771234567</td>
-                    <td>First Message sent to this number as expected deliverd</td>
-                    <td><span class="label label-primary">Delivered</span></td>
-                </tr>
-                <tr>
-                    <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                    <td><b>1</b></td>
-                    <td >02:30:16 <br> 17/01/2018</td>
-                    <td>0771234567</td>
-                    <td>First Message sent to this</td>
-                    <td><span class="label label-primary">Delivered</span></td>
-                </tr>
-                <tr>
-                    <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                    <td><b>1</b></td>
-                    <td >02:30:16 <br> 17/01/2018</td>
-                    <td>0771234567</td>
-                    <td>First Message sent to this</td>
-                    <td><span class="label label-danger">UnDelivered</span></td>
-                </tr>
-                <tr>
-                    <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                    <td><b>1</b></td>
-                    <td >02:30:16 <br> 17/01/2018</td>
-                    <td>0771234567</td>
-                    <td>First Message sent to this</td>
-                    <td><span class="label label-primary">Delivered</span></td>
-                </tr>
-                <tr>
-                    <td><input class="icheckbox_flat-blue"type="checkbox" ></td>
-                    <td><b>1</b></td>
-                    <td >02:30:16 <br> 17/01/2018</td>
-                    <td>0771234567</td>
-                    <td>First Message sent to this</td>
-                    <td><span class="label label-primary">Delivered</span></td>
-                </tr>
-                </tbody>
+                                </tbody>
             </table>
             <!-- /.table -->
         </div>

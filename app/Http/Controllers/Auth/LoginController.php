@@ -49,9 +49,9 @@ class LoginController extends Controller
 //        return redirect()->intended(route('/admin'));
 //    }
 
-//    public function username()
-//    {
-//        return 'username';
-//    }
+    public function username()
+    {
+        return 'username';
+    }
 
 }
