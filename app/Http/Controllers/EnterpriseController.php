@@ -18,7 +18,7 @@ class EnterpriseController extends Controller
     {
 
 
-        $enterprises = EnterpriseAccount::latest()->paginate(5);
+        $enterprises = enterpriseaccount::latest()->paginate(5);
         return view('enterprise.enterprise', compact('enterprises'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
 //        return view('AddEnterprise');
@@ -50,7 +50,7 @@ class EnterpriseController extends Controller
         ]);
 
 
-        EnterpriseAccount::create($request->all());
+        enterpriseaccount::create($request->all());
         return redirect()->route('enterprise.index')
             ->with('success', 'Enterprise created successfully');
 
@@ -82,7 +82,7 @@ class EnterpriseController extends Controller
 
     public function reserve($id)
     {
-        $enterprise = EnterpriseAccount::find($id);
+        $enterprise = enterpriseaccount::find($id);
 //        return "hello";
 
         return view('enterprise.reserve-msg', compact('enterprise', $enterprise))->with('status', 'Reserve Enterprise');
@@ -105,7 +105,7 @@ class EnterpriseController extends Controller
             'EnterpriseAddress' => 'required',
         ]);
 
-        EnterpriseAccount::find($id)->update($request->all());
+        enterpriseaccount::find($id)->update($request->all());
 
         return redirect()->route('enterprise.index')
             ->with('success', 'Article updated successfully');
@@ -116,7 +116,7 @@ class EnterpriseController extends Controller
 
         $userId=User::where('EnterpriseId',$id)->first()->id;
 
-        if(BalanceMessage::where('userId',$userId)->count()>0) {
+        if(balancemessage::where('userId',$userId)->count()>0) {
 
             $balance=BalanceMessage::where('userId',$userId)->first();
 
@@ -133,7 +133,7 @@ class EnterpriseController extends Controller
 
         }else{
 
-            BalanceMessage::create([
+            balancemessage::create([
                 'userId'=> $userId,
                 'DialogBalance' => $request->input('dialog'),
                 'MobitelBalance' => $request->input('mobitel'),

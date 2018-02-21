@@ -15,7 +15,7 @@ class ListController extends Controller
     public function index()
     {
         //
-        $userLists = UserListDetails::latest()->paginate(5);
+        $userLists = userlistdetails::latest()->paginate(5);
         return view('userList.userList', compact('userLists'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

@@ -18,6 +18,7 @@
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 <p>{{ $message }}</p>
             </div>
         @endif

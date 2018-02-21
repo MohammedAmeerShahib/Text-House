@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 use App\TextMessage;
 use Yajra\Datatables\Datatables;
 use App\EnterpriseAccount;
@@ -42,7 +44,7 @@ class SingleMessageController extends Controller
 
 //        $userId=$users->pluck('id');
 
-        $messages = DB::table('TextMessage')
+        $messages = DB::table('textmessage')
             ->whereIn('userId',$users->pluck('id') )->get();
 
 //        $message=TextMessage::where('userId',$userId)->get();
@@ -76,22 +78,31 @@ class SingleMessageController extends Controller
     {
         //
         request()->validate([
-            'MessageReceiver' => 'required',
-            'SentMessage'=>'required',
+            'receiverNo' => 'required',
+            'message'=>'required',
         ]);
 
-        $userId=Auth::user()->id;
+//        $this->sendMessage($request->input('receiverNo'),$request->input('message'));
+        $status=$this->sendMessage($request->input('receiverNo'),$request->input('message'));
+        if($status =='0') {
 
-        TextMessage::create([
-            'userId'=> $userId,
-            'MessageReceiver' => $request->input('receiverNo'),
-            'SentMessage' => $request->input('message'),
-            'Status' => 'Delivered',
-        ]);
+            $userId = Auth::user()->id;
+
+            textmessage::create([
+                'userId' => $userId,
+                'MessageReceiver' => $request->input('receiverNo'),
+                'SentMessage' => $request->input('message'),
+                'Status' => 'Delivered',
+            ]);
 
 
-        return redirect()->route('singleMsg.index')
-        ->with('success', 'Message Sent Successfully');
+            return redirect()->route('singleMsg.index')
+                ->with('success', 'Message Sent Successfully');
+        }else{
+
+            return redirect()->route('singleMsg.index')
+                ->with('success', "Error in sending message");
+        }
 
     }
 
@@ -138,5 +149,15 @@ class SingleMessageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function sendMessage($number,$message){
+
+        $client = new Client();
+        $res=$client->request('GET', 'https://cpsolutions.dialog.lk/index.php/cbs/sms/send',[
+            'query' => ['destination' => $number,'q'=>'14181869886758','message'=>$message]
+        ]);
+
+        return $res->getBody();
     }
 }

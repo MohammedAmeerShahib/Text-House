@@ -18,8 +18,8 @@ class CustomerController extends Controller
     public function index()
     {
 
-       $enterprises= DB::table('EnterpriseAccount')->leftJoin('users', 'EnterpriseAccount.EnterpriseId', '=', 'users.EnterpriseId')
-            ->select('EnterpriseAccount.*')
+       $enterprises= DB::table('enterpriseaccount')->leftJoin('users', 'enterpriseaccount.EnterpriseId', '=', 'users.EnterpriseId')
+            ->select('enterpriseaccount.*')
            ->whereNull('users.EnterpriseId')
            ->get()
            ;
@@ -32,7 +32,7 @@ class CustomerController extends Controller
     public function getSubUsers()
     {
 
-        $subUsers = SubUser::latest()->paginate(5);
+        $subUsers = subuser::latest()->paginate(5);
         return view('user.subUser', compact('subUsers'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -96,7 +96,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
-        $enterprise=EnterpriseAccount::find($id);
+        $enterprise=enterpriseaccount::find($id);
         return view('user.createCustomer',compact('enterprise',$enterprise))->with('status', 'Create User');
 
     }

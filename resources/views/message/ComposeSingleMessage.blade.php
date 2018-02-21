@@ -16,17 +16,19 @@
                         <div class="box-body">
                             <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
-                            <label for="lblTo" class="col-sm-2 control-label">To</label>
+                            <label for="receiverNo" class="col-sm-2 control-label">To</label>
 
-                            <div class="col-sm-10">
+                            <div class="col-sm-8">
                                 <input type="Text" class="form-control" id="receiverNo" name="receiverNo" placeholder="Enter a Contact Number">
 
                             </div>
                         </div>
                         </div>
                         
-                        <div class="form-group">
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter Messege"></textarea>
+                        <div class="form-group ">
+                            <div class="col-sm-10">
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter Messege"></textarea>
+                            </div>
                             </div>
 
                             <div class="modal-footer">

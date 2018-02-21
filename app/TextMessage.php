@@ -11,7 +11,7 @@ class TextMessage extends Model
      *
      * @var array
      */
-    protected $table = 'TextMessage';
+    protected $table = 'textmessage';
     protected $primaryKey = 'MessageId';
 
     protected $fillable = [

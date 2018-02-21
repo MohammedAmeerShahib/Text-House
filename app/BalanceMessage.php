@@ -11,7 +11,7 @@ class BalanceMessage extends Model
      *
      * @var array
      */
-    public $table = 'BalanceMessage';
+    public $table = 'balancemessage';
 
     protected $fillable = [
         'userId', 'DialogBalance','MobitelBalance','AirtelBalance','EtisalatBalance',

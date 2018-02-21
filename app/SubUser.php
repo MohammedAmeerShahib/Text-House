@@ -11,7 +11,7 @@ class SubUser extends Model
      *
      * @var array
      */
-    public $table = 'subUser';
+    public $table = 'subuser';
 
     protected $fillable = [
         'EnterpriseId', 'SubUserName',
@@ -22,6 +22,7 @@ class SubUser extends Model
     {
         return $this->belongsTo('App\EnterpriseAccount','EnterpriseId');
     }
+
 }
 
 
