@@ -17,7 +17,7 @@ class CreateUserListDetailsTable extends Migration
             $table->increments('ListId')->index();
             $table->integer('userId')->unsigned();
             $table->string('ListName');
-            $table->string('ListSize');
+            $table->string('ListSize')->default(0);
             $table->timestamps();
 
         });
@@ -25,6 +25,7 @@ class CreateUserListDetailsTable extends Migration
 
         Schema::table('userlistdetails', function($table)
         {
+            $table->unique( array('userId','ListName') );
             $table->foreign('userId')->references('id')->on('users');
         });
     }

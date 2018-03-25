@@ -94,6 +94,7 @@ Route::group(array('prefix'=>'user','middleware' => ['auth','checkUser']), funct
     });
 
     Route::resource('user-list','ListController');
+    Route::resource('number-list','NumberListController');
 
     Route::resource('singleMsg','SingleMessageController');
 

@@ -11,8 +11,11 @@ class NumberList extends Model
      *
      * @var array
      */
+    protected $table = 'numberlist';
+    protected $primaryKey = 'ListId';
+
     protected $fillable = [
-        'ListId', 'NLNumber',
+        'NLNumber',
     ];
 
     public function userList()

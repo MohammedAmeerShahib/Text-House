@@ -22,6 +22,7 @@ class CreateNumberListsTable extends Migration
         });
         Schema::table('NumberList', function($table)
         {
+            $table->unique( array('ListId','NLNumber') );
             $table->foreign('ListId')->references('ListId')->on('userlistdetails');
         });
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\UserListDetails;
+use App\NumberList;
 
 class ListController extends Controller
 {
@@ -39,7 +41,50 @@ class ListController extends Controller
     public function store(Request $request)
     {
         //
+
+        request()->validate([
+            'ListName' => 'required|unique:userlistdetails',
+        ]);
+
+
+            $userId = Auth::user()->id;
+
+        userlistdetails::create([
+                'userId' => $userId,
+                'ListName' => $request->input('ListName'),
+            ]);
+
+
+            return redirect()->route('user-list.index')
+                ->with('success', 'User List Created Successfully');
+
     }
+
+    public function storeNo(Request $request)
+    {
+        //
+
+        request()->validate([
+            'NLNumber' => 'required|unique:NumberList',
+        ]);
+
+
+        $userList = userlistdetails::find($request->input('NLNumber'));
+
+//        userlistdetails::create([
+//            'userId' => $userId,
+//            'ListName' => $request->input('ListName'),
+//        ]);
+
+        $comment = $userList->numberList()->create([
+            'NLNumber' => $request->input('NLNumber'),
+        ]);
+
+        return redirect()
+            ->with('success', 'User List Created Successfully');
+
+    }
+
 
     /**
      * Display the specified resource.

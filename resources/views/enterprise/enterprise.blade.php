@@ -83,7 +83,7 @@
 
         $(function($) {
 
-            $('#createEnterprise\n').click();
+            $('#createEnterprise').click();
         })
 
     </script>

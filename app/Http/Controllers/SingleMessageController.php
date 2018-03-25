@@ -78,7 +78,7 @@ class SingleMessageController extends Controller
     {
         //
         request()->validate([
-            'receiverNo' => 'required',
+            'receiverNo' => 'required|min:10|max:10',
             'message'=>'required',
         ]);
 

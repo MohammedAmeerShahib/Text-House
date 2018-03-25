@@ -11,7 +11,8 @@ class UserListDetails extends Model
      *
      * @var array
      */
-    public $table = 'userlistdetails';
+    protected $table = 'userlistdetails';
+    protected $primaryKey = 'ListId';
 
     protected $fillable = [
         'userId', 'ListName', 'ListSize',
